@@ -34,14 +34,17 @@ public class AppConfig {
     // 여기서 Bean이 붙은 메소드를 전부 호출해 반환된 객체를 컨테이너에 등록 (스프링 빈이 됨)
     @Bean
     public MemberService memberService() { // 메소드명 : 역할 (인터페이스)
+        System.out.println("call MemberService");
         return new MemberServiceImpl(memberRepository());   //내부 : 구현
     }
     @Bean
     public OrderService orderService() {
+        System.out.println("call OrderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call memberRepository");
         return new MemoryMemberRepository();
     }
     @Bean

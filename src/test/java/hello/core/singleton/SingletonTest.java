@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import static org.assertj.core.api.Assertions.*;
 public class SingletonTest {
     
     //스프링 컨테이너는 알아서 자동으로 싱글톤으로 객체를 생성해줌
@@ -36,7 +37,7 @@ public class SingletonTest {
 
     public static void main(String[] args) {
         //싱글톤 객체 생성 안됨
-        //SingletonService singletonService1 = new SingletonService();
+        //SingletonService singlrtonService1 = new SinglrtonService();
     }
 
     @Test
@@ -51,7 +52,7 @@ public class SingletonTest {
         //1 == 2
         Assertions.assertThat(singletonService1).isSameAs(singletonService2);
     }
-    
+
     @Test
     @DisplayName("스프링 컨테이너와 싱글톤")
     void springContainer() {

@@ -4,8 +4,10 @@ import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 //클라이언트 OrderServiceImpl
+@Component
 public class OrderServiceImpl implements OrderService{
 
     //현재 인터페이스, 구체 두군데 다 의존하면서 DIP ( 의존관계 역전 원칙  ) 위반하고 있음

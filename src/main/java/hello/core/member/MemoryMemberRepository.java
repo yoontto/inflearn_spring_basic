@@ -7,7 +7,7 @@ import java.util.Map;
 
 // 멤버를 가져올 DB가 확정되지 않았기 때문에
 // 임시 멤버 정보를 메모리에만 올려놓고 테스트함
-@Component
+@Component  //컴포넌트 스캔
 public class MemoryMemberRepository implements MemberRepository{
 
     //저장소

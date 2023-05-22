@@ -3,7 +3,7 @@ package hello.core.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component  //컴포넌트 스캔
 public class MemberServiceImpl implements MemberService{
 
     //DIP 위반하고 있음

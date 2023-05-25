@@ -18,12 +18,18 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    @Autowired  //생성자가 딱 하나일때는 autowired 붙은거랑 똑같음
+    @Autowired  // 생성자 주입 :: 생성자가 딱 하나일때는 autowired 붙은거랑 똑같음
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-
+    
+    //의존관계 자동주입 방법 4가지
+    // 생성자 주입, 수정자 주입(setter), 필드주입 (commonMethod처럼), 일반메소드 주입
+    // 생성자 주입 :: 불변하는 의존관계에 사용
+    // 수정자 주입 :: 선택, 변경 가능성 있는 의존관계에 사용
+    // 필드 주입 :: 외부에서 변경할 수 없기때문에 특수한 목적을 가진 빈 외에는 사용하지 않음
+    // 일반메소드 주입 :: 잘 사용하지 않음
 
 
     // SRP 단일 책임원칙에 맞게 잘 설계됨

@@ -18,11 +18,13 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    @Autowired
+    @Autowired  //생성자가 딱 하나일때는 autowired 붙은거랑 똑같음
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+
 
     // SRP 단일 책임원칙에 맞게 잘 설계됨
     // 만약 할인정책에 문제 있으면 member 관계 없이 discountPolicy 내부만 수정하면 됨

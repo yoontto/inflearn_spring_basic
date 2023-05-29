@@ -23,7 +23,7 @@ public class ApplicationContextSameBeanFindTest {
     @Test
     @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면 중복 오류가 발생한다")
     void findBeanByTypeDuplicate(){
-        MemberRepository bean = ac.getBean(MemberRepository.class);
+        //MemberRepository bean = ac.getBean(MemberRepository.class);
         //No qualifying bean of type 'hello.core.member.MemberRepository' available:
         //expected single matching bean but found 2: memberRepository,memberRepository2
         Assertions.assertThrows(NoUniqueBeanDefinitionException.class, () -> ac.getBean(MemberRepository.class));

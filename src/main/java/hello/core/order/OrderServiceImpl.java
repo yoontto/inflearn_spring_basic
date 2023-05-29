@@ -20,6 +20,7 @@ public class OrderServiceImpl implements OrderService{
 
     @Autowired  // 생성자 주입 :: 생성자가 딱 하나일때는 autowired 붙은거랑 똑같음
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
+        //필드에 final 키워드를 사용하면 컴파일 시점에 생성자에 값이 설정되지 않는 오류를 막아줌
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }

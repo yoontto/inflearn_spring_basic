@@ -3,11 +3,14 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 //클라이언트 OrderServiceImpl
 @Component
+@RequiredArgsConstructor // final 붙은 필드로 자동으로 생성자 만들어줌
+                         // ctrl + F12 : java 파일 내에 구성요소 출력
 public class OrderServiceImpl implements OrderService{
 
     //현재 인터페이스, 구체 두군데 다 의존하면서 DIP ( 의존관계 역전 원칙  ) 위반하고 있음
@@ -18,12 +21,16 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    /*
+    
     @Autowired  // 생성자 주입 :: 생성자가 딱 하나일때는 autowired 붙은거랑 똑같음
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
         //필드에 final 키워드를 사용하면 컴파일 시점에 생성자에 값이 설정되지 않는 오류를 막아줌
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+    */
+
     
     //의존관계 자동주입 방법 4가지
     // 생성자 주입, 수정자 주입(setter), 필드주입 (commonMethod처럼), 일반메소드 주입

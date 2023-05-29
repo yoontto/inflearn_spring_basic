@@ -1,15 +1,17 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //클라이언트 OrderServiceImpl
 @Component
-@RequiredArgsConstructor // final 붙은 필드로 자동으로 생성자 만들어줌
+//@RequiredArgsConstructor // final 붙은 필드로 자동으로 생성자 만들어줌
                          // ctrl + F12 : java 파일 내에 구성요소 출력
 public class OrderServiceImpl implements OrderService{
 
@@ -21,15 +23,18 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    /*
-    
+    //1. @Autowired로 선언후 필드명 동일하게 맞춰주면 basicScan() 테스트 오류 안남
+    @Autowired private DiscountPolicy rateDiscountPolicy;
+
     @Autowired  // 생성자 주입 :: 생성자가 딱 하나일때는 autowired 붙은거랑 똑같음
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
+    public OrderServiceImpl(MemberRepository memberRepository
+                            //, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy
+                            //, DiscountPolicy discountPolicy
+                            , @MainDiscountPolicy DiscountPolicy discountPolicy){
         //필드에 final 키워드를 사용하면 컴파일 시점에 생성자에 값이 설정되지 않는 오류를 막아줌
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-    */
 
     
     //의존관계 자동주입 방법 4가지

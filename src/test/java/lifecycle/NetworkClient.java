@@ -1,5 +1,9 @@
 package lifecycle;
 
+//javax는 자바에서 지원함! 스프링이 아닌 다른 컨테이너에서도 동작함
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient{
 
     private String url;
@@ -38,12 +42,17 @@ public class NetworkClient{
         System.out.println("close = " + url);
     }
 
+    //@PostConstruct, @PreDestroy
+    // 결론 : 어노테이션 쓰기!
+    // 단점 : 외부 라이브러리에서는 사용 못함, 외부 라이브러리 초기화,종료는 @Bean의 기능을 사용해야 함
+    @PostConstruct
     public void init() {
         System.out.println("init");
         connect();
         call("초기화 완료");
     }
 
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("close");
         disconnect();

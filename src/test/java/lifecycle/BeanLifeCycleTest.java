@@ -19,7 +19,10 @@ public class BeanLifeCycleTest {
 
     @Configuration
     static class LifeCycleConfig {
-        @Bean
+        //destroyMethod는 추론기능이 있음(inferred)
+        //close나 shutdown이라는 이름의 메소드를 자동으로 호출해줌
+        //destroyMethod = "" 이렇게 빈칸으로 두면 추론기능 동작 안함
+        @Bean(initMethod = "init", destroyMethod = "close")
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://fake.dev");

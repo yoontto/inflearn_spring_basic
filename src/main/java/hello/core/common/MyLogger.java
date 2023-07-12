@@ -15,6 +15,8 @@ public class MyLogger {
     //Error creating bean with name 'myLogger': Scope 'request' is not active for the current thread;
     //처음 켤때는 request 요청이 없기 때문에 scope 생존 범위가 아니라서 에러남
     //실제 고객 요청이 왔을때만 활성화됨
+    // 해결법 : provider 사용!
+    // (매번 사용할 때 마다 의존관계 주입이 완료된 새로운 객체가 필요하면 사용하면 된다)
     private String uuid;
     private String requestURL;
 

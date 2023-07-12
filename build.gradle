@@ -18,6 +18,9 @@ dependencies {
 	//provider 사용 :: 프로토타입 스코프 - 싱글톤 빈과 함께 사용시 Provider로 문제 해결
 	implementation 'javax.inject:javax.inject:1'
 
+	//웹 라이브러리 추가
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 	//lombok 라이브러리 추가 시작
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
